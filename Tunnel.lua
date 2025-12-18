@@ -63,7 +63,9 @@ _CMR.TunnelResolve = function(TableValue, key)
         local Args = {...}
         rID = Tid:gen()
         Tcallback[tostring(rID)] = function(...)
-            callback(...)
+            if callback then
+                callback(...)
+            end
         end
 
         if triggerClientEvent then
